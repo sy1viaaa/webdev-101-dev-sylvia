@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex h-screen w-screen justify-center">
-	<div class="w-3/5">
+	<div class="w-full max-w-4xl">
 		<div class="navbar bg-base-100">
 			<div class="flex-none">
 				<button class="btn-ghost btn-square btn">
