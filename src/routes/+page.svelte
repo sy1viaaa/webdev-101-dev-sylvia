@@ -3,7 +3,7 @@
 	import Messages from '$lib/Messages.svelte';
 </script>
 
-
+<p>this is v2!</p>
 <Login />
 <Messages />
 
