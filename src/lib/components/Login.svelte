@@ -3,6 +3,7 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
+	import Textarea from './glue/Textarea.svelte';
 
 	let state: 'signin' | 'register' = 'register';
 
@@ -41,6 +42,16 @@
 		if (state === 'signin') login();
 		else if (state === 'register') signUp();
 	};
+
+	let caption: string = '';
+
+	const handleCreatePost = async () => {
+		await pb.collection('posts').create({
+			caption,
+			user: $currentUser?.id
+		});
+		caption = '';
+	};
 </script>
 
 {#if $currentUser}
@@ -59,13 +70,22 @@
 		</ul>
 	</div>
 
-	<!-- NOTE: create post modal -->
+	<!-- create post modal -->
 	<input type="checkbox" id="modal-create-post" class="modal-toggle" />
 	<label for="modal-create-post" class="modal cursor-pointer">
 		<label class="modal-box relative w-11/12 max-w-sm" for="">
-			<form on:submit|preventDefault={handleSubmit}>
+			<form on:submit|preventDefault>
 				<div class="flex flex-col gap-3">
 					<h3 class="p-0 text-xl font-medium">Create post</h3>
+					<Textarea label="caption" name="caption" required bind:value={caption} />
+					<label
+						for="modal-create-post"
+						class="btn-primary btn-block btn"
+						on:click={handleCreatePost}
+					>
+						Create post
+					</label>
+					<!-- <button class="btn-primary btn-block btn">Create post</button> -->
 				</div>
 			</form>
 		</label>

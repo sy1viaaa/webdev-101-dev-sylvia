@@ -1,6 +1,5 @@
 <script>
-	import Login from '$lib/components/Login.svelte';
-	import Messages from '$lib/components/Messages.svelte';
+	import Posts from '$lib/components/Posts.svelte';
 </script>
 
-<!-- <Messages /> -->
+<Posts />

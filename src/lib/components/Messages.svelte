@@ -24,10 +24,12 @@
 			}
 		});
 	});
+
 	// Unsubscribe from realtime messages
 	onDestroy(() => {
 		unsubscribe?.();
 	});
+
 	async function sendMessage() {
 		const data = {
 			text: newMessage,
