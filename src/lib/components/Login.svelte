@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { currentUser, pb } from '$lib/pocketbase';
 	import { appName } from '$lib/config';
+	import IconAdd from '$lib/icons/IconAdd.svelte';
+	import IconLogout from '$lib/icons/IconLogout.svelte';
+	import { currentUser, pb } from '$lib/pocketbase';
 
 	let state: 'signin' | 'register' = 'register';
 
@@ -48,9 +50,26 @@
 			tabindex="0"
 			class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow"
 		>
-			<li><button on:click={signOut}>Logout</button></li>
+			<li>
+				<label tabindex="0" for="modal-create-post" class="flex items-center">
+					<IconAdd />Create post
+				</label>
+			</li>
+			<li><button on:click={signOut}><IconLogout />Logout</button></li>
 		</ul>
 	</div>
+
+	<!-- NOTE: create post modal -->
+	<input type="checkbox" id="modal-create-post" class="modal-toggle" />
+	<label for="modal-create-post" class="modal cursor-pointer">
+		<label class="modal-box relative w-11/12 max-w-sm" for="">
+			<form on:submit|preventDefault={handleSubmit}>
+				<div class="flex flex-col gap-3">
+					<h3 class="p-0 text-xl font-medium">Create post</h3>
+				</div>
+			</form>
+		</label>
+	</label>
 {:else}
 	<button>
 		<label for="modal-auth" class="btn-primary btn">Get started</label>
