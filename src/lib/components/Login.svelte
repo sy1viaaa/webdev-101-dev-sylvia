@@ -31,6 +31,7 @@
 	}
 
 	function signOut() {
+		console.log('sign out');
 		pb.authStore.clear();
 	}
 
@@ -43,7 +44,10 @@
 {#if $currentUser}
 	<div class="dropdown-end dropdown">
 		<label tabindex="0" class="btn-ghost btn">{$currentUser.email?.split('@')[0]}</label>
-		<ul class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow">
+		<ul
+			tabindex="0"
+			class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow"
+		>
 			<li><button on:click={signOut}>Logout</button></li>
 		</ul>
 	</div>
