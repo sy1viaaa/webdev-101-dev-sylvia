@@ -42,9 +42,7 @@
 
 {#if $currentUser}
 	<div class="dropdown-end dropdown">
-		<button class="btn-ghost btn">
-			{$currentUser.email?.split('@')[0]}
-		</button>
+		<label tabindex="0" class="btn-ghost btn">{$currentUser.email?.split('@')[0]}</label>
 		<ul class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow">
 			<li><button on:click={signOut}>Logout</button></li>
 		</ul>
