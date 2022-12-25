@@ -3,8 +3,8 @@
 	import Messages from '$lib/Messages.svelte';
 </script>
 
-<div class="flex w-screen items-center justify-center">
-	<div class="p-4">
+<div class="flex h-screen w-screen items-center justify-center">
+	<div class="w-1/3">
 		<Login />
 		<Messages />
 	</div>

@@ -61,7 +61,14 @@
 </div>
 <div class="mt-2">
 	<form on:submit|preventDefault={sendMessage}>
-		<input class="input-bordered input" placeholder="Message" type="text" bind:value={newMessage} />
-		<button class="btn-primary btn" type="submit">Send</button>
+		<div class="flex items-center">
+			<input
+				class="input-bordered input flex-grow"
+				placeholder="Message"
+				type="text"
+				bind:value={newMessage}
+			/>
+			<button class="btn-primary btn ml-2" type="submit">Send</button>
+		</div>
 	</form>
 </div>
