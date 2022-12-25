@@ -1,9 +1,8 @@
 <script>
-  import Login from '$lib/Login.svelte'
+	import Login from '$lib/Login.svelte';
 	import Messages from '$lib/Messages.svelte';
 </script>
 
-<p>this is v2!</p>
+<h1 class="text-3xl font-bold">Hello world!</h1>
 <Login />
 <Messages />
-
