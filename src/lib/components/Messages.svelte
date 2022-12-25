@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { currentUser, pb } from './pocketbase';
+	import { currentUser, pb } from '$lib/pocketbase';
 	let newMessage: string;
 	let messages: any[] = [];
 	let unsubscribe: () => void;
