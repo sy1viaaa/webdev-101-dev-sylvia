@@ -40,23 +40,28 @@
 
 <div class="messages">
 	{#each messages as message (message.id)}
-		<div class="msg">
-			<img
-				class="avatar"
-				src={`https://avatars.dicebear.com/api/identicon/${message.expand?.user?.username}.svg`}
-				alt="avatar"
-				width="40px"
-			/>
+		<div class="msg py-2">
+			<div class="flex items-center gap-x-2">
+				<div class="avatar">
+					<div class="w-4 rounded-full">
+						<img
+							src={`https://avatars.dicebear.com/api/identicon/${message.expand?.user?.username}.svg`}
+							alt="avatar"
+							width="40px"
+						/>
+					</div>
+				</div>
+				<p class="text-sm font-medium">{message.expand?.user?.username}</p>
+			</div>
 			<div>
-				<small>
-					Sent by @{message.expand?.user?.username}
-				</small>
 				<p class="msg-text">{message.text}</p>
 			</div>
 		</div>
 	{/each}
 </div>
-<form on:submit|preventDefault={sendMessage}>
-	<input class="input-bordered input" placeholder="Message" type="text" bind:value={newMessage} />
-	<button class="btn-primary btn" type="submit">Send</button>
-</form>
+<div class="mt-2">
+	<form on:submit|preventDefault={sendMessage}>
+		<input class="input-bordered input" placeholder="Message" type="text" bind:value={newMessage} />
+		<button class="btn-primary btn" type="submit">Send</button>
+	</form>
+</div>

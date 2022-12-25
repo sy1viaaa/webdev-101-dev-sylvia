@@ -3,6 +3,9 @@
 	import Messages from '$lib/Messages.svelte';
 </script>
 
-<h1 class="text-3xl font-bold">Hello world!</h1>
-<Login />
-<Messages />
+<div class="flex w-screen items-center justify-center">
+	<div class="p-4">
+		<Login />
+		<Messages />
+	</div>
+</div>
