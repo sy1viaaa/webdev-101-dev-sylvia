@@ -31,11 +31,6 @@
 	onDestroy(() => {
 		unsubscribe?.();
 	});
-
-	$: {
-		console.log('posts', posts);
-		// const url = pb.getFileUrl(record, firstFilename, {'thumb': '100x250'});
-	}
 </script>
 
 <div class="flex justify-center">
