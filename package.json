@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"daisyui": "^2.46.0",
+		"date-fns": "^2.29.3",
 		"pocketbase": "^0.9.1"
 	}
 }

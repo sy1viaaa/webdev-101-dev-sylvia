@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
+	import { format } from 'date-fns';
 
 	let posts: any[] = [];
 	let unsubscribe: () => void;
@@ -30,29 +31,54 @@
 	onDestroy(() => {
 		unsubscribe?.();
 	});
+
+	$: {
+		console.log('posts', posts);
+		// const url = pb.getFileUrl(record, firstFilename, {'thumb': '100x250'});
+	}
 </script>
 
 <div class="flex justify-center">
 	<div class="w-full max-w-lg">
 		{#each posts as post}
-			<div class="mb-4 flex flex-col gap-2 rounded-lg border-2 border-base-300">
+			<div class="mb-4 flex flex-col gap-2 rounded-lg border-2 border-base-300 py-2">
 				<!-- author -->
 				<div class="flex justify-between py-2 px-4">
 					<div class="flex items-center gap-2">
 						<!-- avatar -->
 						<div class="placeholder avatar">
 							<div class="w-8 rounded-full bg-neutral-focus text-neutral-content">
-								<span class="text-md">{$currentUser?.email?.charAt(0)}</span>
+								<span class="text-md">{post?.expand?.user?.username?.charAt(0)}</span>
 							</div>
 						</div>
 
 						<!-- username -->
-						<p class="text-sm font-medium">{$currentUser?.email}</p>
+						<p class="text-sm font-medium">{post?.expand?.user?.username}</p>
 					</div>
 				</div>
-				<!-- caption -->
+				<!-- photo -->
+				<div class="carousel w-full">
+					{#each post.photos as photo, idx (photo)}
+						<div id={`${idx}`} class="carousel-item relative w-full">
+							<img src={pb.getFileUrl(post, photo, { thumb: '100x250' })} class="w-full" />
+							<div
+								class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+							>
+								<a href={`#${Math.max(0, idx - 1)}`} class="btn-circle btn">❮</a>
+								<a href={`#${Math.min(post?.photos?.length - 1, idx + 1)}`} class="btn-circle btn"
+									>❯</a
+								>
+							</div>
+						</div>
+					{/each}
+				</div>
+
 				<div class="py-2 px-4">
-					<p class="text-sm">{post.caption}</p>
+					<!-- caption -->
+					<p class="mb-4 text-sm">{post.caption}</p>
+
+					<!-- date -->
+					<p class="text-xs">{format(new Date(post.created), 'MMM dd yyyy')}</p>
 				</div>
 			</div>
 		{/each}

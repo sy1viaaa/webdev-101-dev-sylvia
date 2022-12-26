@@ -3,6 +3,7 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
+	import type { ChangeEventHandler } from 'svelte/elements';
 	import Textarea from './glue/Textarea.svelte';
 
 	let state: 'signin' | 'register' = 'register';
@@ -43,14 +44,21 @@
 		else if (state === 'register') signUp();
 	};
 
+	// create post
+	const formData = new FormData();
 	let caption: string = '';
 
 	const handleCreatePost = async () => {
-		await pb.collection('posts').create({
-			caption,
-			user: $currentUser?.id
-		});
+		formData.append('caption', caption);
+		formData.append('user', $currentUser?.id as string);
+		await pb.collection('posts').create(formData);
 		caption = '';
+	};
+
+	const handleFileChange = (event: any) => {
+		for (let file of event?.target?.files) {
+			formData.append('photos', file);
+		}
 	};
 </script>
 
@@ -78,6 +86,12 @@
 				<div class="flex flex-col gap-3">
 					<h3 class="p-0 text-xl font-medium">Create post</h3>
 					<Textarea label="caption" name="caption" required bind:value={caption} />
+					<input
+						type="file"
+						class="file-input-bordered file-input w-full max-w-xs"
+						on:change={handleFileChange}
+						multiple
+					/>
 					<label
 						for="modal-create-post"
 						class="btn-primary btn-block btn"
@@ -85,7 +99,6 @@
 					>
 						Create post
 					</label>
-					<!-- <button class="btn-primary btn-block btn">Create post</button> -->
 				</div>
 			</form>
 		</label>
