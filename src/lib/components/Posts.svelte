@@ -39,7 +39,7 @@
 </script>
 
 <div class="flex justify-center">
-	<div class="w-full max-w-lg">
+	<div class="w-full max-w-lg p-4">
 		{#each posts as post}
 			<div class="mb-4 flex flex-col gap-2 rounded-lg border-2 border-base-300 py-2">
 				<!-- author -->
@@ -64,9 +64,10 @@
 							<div
 								class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
 							>
-								<a href={`#${Math.max(0, idx - 1)}`} class="btn-circle btn">❮</a>
-								<a href={`#${Math.min(post?.photos?.length - 1, idx + 1)}`} class="btn-circle btn"
-									>❯</a
+								<a href={`#${Math.max(0, idx - 1)}`} class="btn-ghost btn-circle btn">❮</a>
+								<a
+									href={`#${Math.min(post?.photos?.length - 1, idx + 1)}`}
+									class="btn-ghost btn-circle btn">❯</a
 								>
 							</div>
 						</div>
