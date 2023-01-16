@@ -3,8 +3,7 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
-	import type { ChangeEventHandler } from 'svelte/elements';
-	import Textarea from './glue/Textarea.svelte';
+	import Textarea from './Textarea.svelte';
 
 	let state: 'signin' | 'register' = 'register';
 
