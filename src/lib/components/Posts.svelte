@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { currentUser, pb } from '$lib/pocketbase';
+	import { pb } from '$lib/pocketbase';
 	import { format } from 'date-fns';
+	import { onDestroy, onMount } from 'svelte';
 
 	let posts: any[] = [];
 	let unsubscribe: () => void;
