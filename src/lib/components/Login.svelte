@@ -3,8 +3,6 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
-	import type { ChangeEventHandler } from 'svelte/elements';
-	import Textarea from './glue/Textarea.svelte';
 
 	let state: 'signin' | 'register' = 'register';
 
@@ -85,7 +83,10 @@
 			<form on:submit|preventDefault>
 				<div class="flex flex-col gap-3">
 					<h3 class="p-0 text-xl font-medium">Create post</h3>
-					<Textarea label="caption" name="caption" required bind:value={caption} />
+					<div class="form-control">
+						<label class="label" for="caption">Caption</label>
+						<textarea name="caption" class="textarea-bordered textarea h-24 w-full" />
+					</div>
 					<input
 						type="file"
 						class="file-input-bordered file-input w-full max-w-xs"
