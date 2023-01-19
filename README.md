@@ -31,5 +31,7 @@ The entire dev course consists of two sessions, which are each 2 hours long.
 ## Instructions
 
 [Session 0 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-0-12ec805f45b447cba258f24c632c67de)
+
 [Session 1 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-1-51701b7456134d40bc3cafe5b574f15f)
+
 [Session 2 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-2-77419c05ac53407188760ca90dbf7a82)
