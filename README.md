@@ -1,38 +1,35 @@
-# create-svelte
+# webdev 101 dev
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The course is designed to be interactive, yet beginner friendly. We’ll be making Ezragram, an Instagram clone with minimal features.
 
-## Creating a project
+While making Ezragram we’ll get first-hand experience with implementing some of the most common features in web development.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Time & Location
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Just show up to webdev's meetings! The course will a part of the developer onboarding process.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Time & location of webdev meetings are posted on Instagram:
+[https://www.instagram.com/cornell_webdev/](https://www.instagram.com/cornell_webdev/)
 
-## Developing
+## Schedule
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The entire dev course consists of two sessions, which are each 2 hours long.
 
-```bash
-npm run dev
+- **Session 1 (2 hours)**
+  - Learning the fundamentals
+  - Dev environment set up
+    - SvelteKit (frontend)
+    - Pocketbase (backend + database)
+  - User authentication (Google auth)
+- **Session 2 (2 hours)**
+  - Instagram core features
+    - create post
+    - view posts
+    - delete post
+  - Deploy the live website into the real world, so that anyone on the internet can use it
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Instructions
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[Session 0 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-0-12ec805f45b447cba258f24c632c67de)
+[Session 1 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-1-51701b7456134d40bc3cafe5b574f15f)
+[Session 2 instructions](https://rainbow-wrist-9be.notion.site/dev-webdev-101-session-2-77419c05ac53407188760ca90dbf7a82)
