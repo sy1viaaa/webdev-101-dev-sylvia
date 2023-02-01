@@ -52,21 +52,8 @@
 					</div>
 				</div>
 				<!-- photo -->
-				<div class="carousel w-full">
-					{#each post.photos as photo, idx (photo)}
-						<div id={`${idx}`} class="carousel-item relative w-full">
-							<img src={pb.getFileUrl(post, photo, { thumb: '100x250' })} class="w-full" />
-							<div
-								class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
-							>
-								<a href={`#${Math.max(0, idx - 1)}`} class="btn-ghost btn-circle btn">❮</a>
-								<a
-									href={`#${Math.min(post?.photos?.length - 1, idx + 1)}`}
-									class="btn-ghost btn-circle btn">❯</a
-								>
-							</div>
-						</div>
-					{/each}
+				<div class="w-full">
+					<img src={pb.getFileUrl(post, post?.photos[0], { thumb: '100x250' })} class="w-full" />
 				</div>
 
 				<div class="py-2 px-4">
