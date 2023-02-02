@@ -1,35 +1,16 @@
 <script lang="ts">
 	import { pb } from '$lib/pocketbase';
 	import { format } from 'date-fns';
-	import { onDestroy, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 
 	let posts: any[] = [];
-	let unsubscribe: () => void;
 
 	onMount(async () => {
-		// Get initial posts
 		const resultList = await pb.collection('posts').getList(1, 50, {
 			sort: '-created',
 			expand: 'user'
 		});
 		posts = resultList.items;
-
-		// Subscribe to realtime posts
-		unsubscribe = await pb.collection('posts').subscribe('*', async ({ action, record }) => {
-			if (action === 'create') {
-				// Fetch associated user
-				const user = await pb.collection('users').getOne(record.user);
-				record.expand = { user };
-				posts = [record, ...posts];
-			}
-			if (action === 'delete') {
-				posts = posts.filter((m) => m.id !== record.id);
-			}
-		});
-	});
-
-	onDestroy(() => {
-		unsubscribe?.();
 	});
 </script>
 
