@@ -53,7 +53,7 @@
 				</div>
 				<!-- photo -->
 				<div class="w-full">
-					<img src={pb.getFileUrl(post, post?.photos[0], { thumb: '100x250' })} class="w-full" />
+					<img src={pb.getFileUrl(post, post?.photos[0])} class="h-[500px] w-full" />
 				</div>
 
 				<div class="py-2 px-4">
